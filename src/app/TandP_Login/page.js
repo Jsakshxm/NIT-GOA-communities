@@ -1,39 +1,33 @@
-import Link from "next/link";
+"use client"
+import { useRouter } from "next/Navigation";
 
-const Page = () => {
+export default function Page() {
+  const router = useRouter();
   return (
-    <div className="flex items-center justify-center h-screen">
-      <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <h1 className="text-2xl font-bold mb-4 text-center">Login for T&P Members</h1>
-        <div className="mb-4">
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4"
-            type="text"
-            placeholder="Name"
-          />
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4"
-            type="text"
-            placeholder="Email"
-          />
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-6"
-            type="password"
-            placeholder="Password"
-          />
-          <div className="flex items-center justify-between">
-            <Link href="/Dashboard">
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-4">
-                Submit
-              </button>
-            </Link>
-            <div className="items-center">
-              </div>
-          </div>
-        </div>
-      </form>
+    <div className="flex justify-center items-center h-screen">
+      <div className="bg-white p-8 rounded-lg shadow-md w-96">
+        <h1 className="text-2xl font-semibold mb-4">T&P Login</h1>
+        <input
+          type="email"
+          placeholder="Email"
+          id="email"
+          className="border rounded-lg w-full py-2 px-3 mb-4"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          id="password"
+          className="border rounded-lg w-full py-2 px-3 mb-4"
+        />
+        <button
+          type="submit"
+          id="login-button"
+          onClick={() => router.push("/Dashboard")}
+          className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+        >
+          Login
+        </button>
+      </div>
     </div>
   );
-};
-
-export default Page;
+}

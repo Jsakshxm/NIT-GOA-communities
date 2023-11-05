@@ -19,7 +19,16 @@ const getGroupColor = (index) => {
 };
 
 const Page = () => {
-  return (<><h1 className="text-3xl font-bold mb-4 text-center">Communities</h1>
+  return (<><nav class="bg-blue-500 p-4">
+  <div class="container mx-auto flex justify-between items-center">
+      <Link href="#" class="text-white text-2xl font-semibold">NIT Communities</Link>
+      <div class="space-x-4">
+      <Link href="/" class="text-white hover:text-yellow-500 hover:transform hover:translate-y-2">Home</Link>
+          <Link href="/About" class="text-white hover:text-yellow-500 hover:transform hover:translate-y-2">About</Link>
+          <Link href="#" class="text-white hover:text-yellow-500 hover:transform hover:translate-y-2">sign out</Link>
+      </div>
+  </div>
+</nav>
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 justify-center">
       
       {group.map((group, index) => (

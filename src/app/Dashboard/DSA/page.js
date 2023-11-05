@@ -1,4 +1,5 @@
 import { group } from "@/detail";
+import Link from "next/link";
 
 const Page = () => {
   // Find the DSA group
@@ -11,7 +12,15 @@ const Page = () => {
         {dsaGroup && dsaGroup.members.map((member, index) => (
           <li key={index} className="p-2 bg-gray-100 rounded-md">{member}</li>
         ))}
-      </ul>
+      </ul><center>
+      <Link href="/chat"><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-5">
+  CHAT
+</button>
+</Link>
+<Link href="/chat"><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-5">
+  Start Video meet
+</button>
+</Link></center>
     </div>
   );
 };
