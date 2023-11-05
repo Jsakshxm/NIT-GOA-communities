@@ -72,7 +72,7 @@ function SignIn() {
 
 function SignOut() {
   return auth.currentUser && (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col h-screen w-52 right-full">
     <button className="sign-out bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out" onClick={() => auth.signOut()}>Sign Out</button></div>
   )
 }
@@ -105,22 +105,28 @@ function ChatRoom() {
   }
 
   return (<>
-    <main>
-
+    <main className="bg-gray-100 p-4 rounded-lg mb-4 overflow-y-auto max-h-96">
       {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
-
       <span ref={dummy}></span>
-
     </main>
-
-    <form onSubmit={sendMessage}>
-
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
-
-      <button type="submit" disabled={!formValue}>🕊️</button>
-
+  
+    <form className="flex items-center space-x-2">
+      <input
+        value={formValue}
+        onChange={(e) => setFormValue(e.target.value)}
+        className="w-full py-2 px-3 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-500"
+        placeholder="say something nice"
+      />
+      <button
+        type="submit"
+        disabled={!formValue}
+        className="px-4 py-2 rounded-lg bg-blue-500 text-white hover:bg-blue-700 focus:outline-none focus:ring focus:border-blue-300"
+      >
+        🕊️
+      </button>
     </form>
-  </>)
+  </>
+  )
 }
 
 
@@ -131,13 +137,14 @@ function ChatMessage(props) {
 
   return (<>
     <div className={`message ${messageClass} flex items-center bg-white border rounded-lg p-4 shadow-md mx-10`}>
-      <img
-        src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'}
-        className="w-12 h-12 rounded-full object-cover mr-4"
-        alt="User"
-      />
-      <p className="text-gray-800">{text}</p>
-    </div>
+  <img
+    src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'}
+    className="w-12 h-12 rounded-full object-cover mr-4"
+    alt="User"
+  />
+  <p className="text-gray-800 mx-10">{text}</p>
+</div>
+
   </>)
 }
 

@@ -17,7 +17,7 @@ const Page = () => {
   CHAT
 </button>
 </Link>
-<Link href="/chat"><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-5">
+<Link href="http://localhost:3002/react-rtc-demo"><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-5">
   Start Video meet
 </button>
 </Link></center>
